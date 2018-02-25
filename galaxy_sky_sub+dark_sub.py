@@ -145,7 +145,18 @@ def sky_dark_sub(gal_num, configfile, section, section_gal, show_output, dark_RA
                 print ("output plot for index = %s with keyword = %s filter = %s sky_value = %s"%(i, gal_key, x_filter, sky_value[i]))
 
                 #plt.show()
-            
+            ###### creating intermediate directories ####
+            directory1 = os.path.dirname(primary_dir+"INTERMEDIATE_PNG")
+            directory2 = os.path.dirname(primary_dir+"INTERMEDIATE_TXT")
+            directory3 = os.path.dirname(primary_dir+"INTERMEDIATE_FITS")
+
+            if not os.path.exists(directory1):
+                os.makedirs(directory1) 
+            if not os.path.exists(directory2):
+                os.makedirs(directory2) 
+            if not os.path.exists(directory3):
+                os.makedirs(directory3) 
+            #####
             fig.savefig("%s/INTERMEDIATE_PNG/galaxy%s_%s_sky_sub.png"%(primary_dir, gal_num+1, gal_key), dvi = 400, bbox_inches = 'tight')
             plt.close(fig)
             hdulist.close()
