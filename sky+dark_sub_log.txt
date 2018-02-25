@@ -1,0 +1,915 @@
+/home/sourabh/ULIRG_v2/DARK_files_ISR/
+<<<<<Performing sky subtraction using NULIRG 1>>>>
+Lising out bad frames
+['""']
+Lisiting out hot frames T>25 that need separate dark subtraction
+['11e6q']
+output plot for index = 0 with keyword = 11ctq filter = 165.0 sky_value = 0.00818035006523
+output plot for index = 1 with keyword = 11cwq filter = 125.0 sky_value = 0.0101415570825
+output plot for index = 2 with keyword = 11cxq filter = 140.0 sky_value = 0.00640742620453
+output plot for index = 3 with keyword = 11deq filter = 150.0 sky_value = 0.0100382380188
+output plot for index = 4 with keyword = 11dhq filter = 150.0 sky_value = 0.00761769432575
+output plot for index = 5 with keyword = 11dsq filter = 140.0 sky_value = 0.00630661053583
+output plot for index = 6 with keyword = 11dtq filter = 125.0 sky_value = 0.00815609190613
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF10594+3818/jcmc11e6q_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+4.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF10594+3818/jcmc11e6q_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF10594+3818/jcmc11e6q_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF10594+3818/jcmc11e6q_flt_seg_map.fits    -DETECT_MINAREA   4.5    -DETECT_THRESH    20.0    -ANALYSIS_THRESH  4.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  18
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF10594+3818/jcmc11e6q_raw.fits
+HHHHAAAAAPPPPYYY!!!
+output plot for index = 8 with keyword = 12jxq filter = 165.0 sky_value = 0.00922098942101
+output plot for index = 9 with keyword = 12jyq filter = 125.0 sky_value = 0.00810636766255
+output plot for index = 10 with keyword = 12jzq filter = 140.0 sky_value = 0.00693817157298
+output plot for index = 11 with keyword = 12k0q filter = 150.0 sky_value = 0.00686568254605
+<<<<<Performing sky subtraction using NULIRG 2>>>>
+Lising out bad frames
+['""']
+Lisiting out hot frames T>25 that need separate dark subtraction
+['21req']
+output plot for index = 16 with keyword = 21qsq filter = 165.0 sky_value = 0.00951875001192
+output plot for index = 17 with keyword = 21qtq filter = 125.0 sky_value = 0.00700048357248
+output plot for index = 18 with keyword = 21quq filter = 140.0 sky_value = 0.00766397127882
+output plot for index = 19 with keyword = 21qvq filter = 150.0 sky_value = 0.00911691319197
+output plot for index = 20 with keyword = 21rbq filter = 150.0 sky_value = 0.0108996424824
+output plot for index = 21 with keyword = 21rcq filter = 140.0 sky_value = 0.00744573445991
+output plot for index = 22 with keyword = 21rdq filter = 125.0 sky_value = 0.00872779451311
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF12447+3721/jcmc21req_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+3.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF12447+3721/jcmc21req_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF12447+3721/jcmc21req_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF12447+3721/jcmc21req_flt_seg_map.fits    -DETECT_MINAREA   250.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  18
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF12447+3721/jcmc21req_raw.fits
+HHHHAAAAAPPPPYYY!!!
+output plot for index = 24 with keyword = 22exq filter = 165.0 sky_value = 0.012167872861
+output plot for index = 25 with keyword = 22f0q filter = 125.0 sky_value = 0.0144877713174
+output plot for index = 26 with keyword = 22f1q filter = 140.0 sky_value = 0.00666542211547
+output plot for index = 27 with keyword = 22f5q filter = 150.0 sky_value = 0.00860573723912
+<<<<<Performing sky subtraction using NULIRG 3>>>>
+Lising out bad frames
+['32nwq', '31n8q', '31ngq']
+Lisiting out hot frames T>25 that need separate dark subtraction
+['32o1q', '31nfq', '32o0q', '31neq', '32o2q', '31nhq']
+output plot for index = 32 with keyword = 31n2q filter = 165.0 sky_value = 0.00829075090587
+output plot for index = 33 with keyword = 31n3q filter = 125.0 sky_value = 0.00658807670698
+output plot for index = 34 with keyword = 31n4q filter = 140.0 sky_value = 0.00594054535031
+output plot for index = 35 with keyword = 31n5q filter = 150.0 sky_value = 0.00976505130529
+output plot for index = 36 with keyword = 31n6q filter = 150.0 sky_value = 0.0132088614628
+output plot for index = 37 with keyword = 31n7q filter = 140.0 sky_value = 0.0129009075463
+output plot for index = 39 with keyword = 31n9q filter = 165.0 sky_value = 0.0102224228904
+output plot for index = 40 with keyword = 31naq filter = 165.0 sky_value = 0.00892697460949
+output plot for index = 41 with keyword = 31nbq filter = 125.0 sky_value = 0.00697154272348
+output plot for index = 42 with keyword = 31ncq filter = 140.0 sky_value = 0.00693354289979
+output plot for index = 43 with keyword = 31ndq filter = 150.0 sky_value = 0.0119030559435
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31neq_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31neq_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31neq_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31neq_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  12
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31neq_raw.fits
+HHHHAAAAAPPPPYYY!!!
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nfq_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nfq_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nfq_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nfq_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  16
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nfq_raw.fits
+HHHHAAAAAPPPPYYY!!!
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nhq_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nhq_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nhq_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nhq_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  19
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31nhq_raw.fits
+HHHHAAAAAPPPPYYY!!!
+output plot for index = 48 with keyword = 32nvq filter = 165.0 sky_value = 0.0141015201807
+output plot for index = 50 with keyword = 32nxq filter = 140.0 sky_value = 0.0169332660735
+output plot for index = 51 with keyword = 32nyq filter = 150.0 sky_value = 0.0181326884776
+output plot for index = 52 with keyword = 32nzq filter = 150.0 sky_value = 0.0147835109383
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o0q_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o0q_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o0q_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o0q_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  19
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o0q_raw.fits
+HHHHAAAAAPPPPYYY!!!
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o1q_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o1q_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o1q_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o1q_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  19
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o1q_raw.fits
+HHHHAAAAAPPPPYYY!!!
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o2q_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+6.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o2q_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o2q_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o2q_flt_seg_map.fits    -DETECT_MINAREA   400.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  18
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc32o2q_raw.fits
+HHHHAAAAAPPPPYYY!!!
+<<<<<Performing sky subtraction using NULIRG 4>>>>
+Lising out bad frames
+['42o7q', '42oaq', '42o8q', '42o9q']
+Lisiting out hot frames T>25 that need separate dark subtraction
+['41eeq']
+output plot for index = 62 with keyword = 41dxq filter = 165.0 sky_value = 0.00932685192674
+output plot for index = 63 with keyword = 41e1q filter = 125.0 sky_value = 0.00810675323009
+output plot for index = 64 with keyword = 41e2q filter = 140.0 sky_value = 0.00928968470544
+output plot for index = 65 with keyword = 41e5q filter = 150.0 sky_value = 0.0116979153827
+output plot for index = 66 with keyword = 41eaq filter = 150.0 sky_value = 0.014571364969
+output plot for index = 67 with keyword = 41ecq filter = 140.0 sky_value = 0.01117033232
+output plot for index = 68 with keyword = 41edq filter = 125.0 sky_value = 0.0131531907246
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF14202+2615/jcmc41eeq_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+3.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF14202+2615/jcmc41eeq_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF14202+2615/jcmc41eeq_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF14202+2615/jcmc41eeq_flt_seg_map.fits    -DETECT_MINAREA   250.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  19
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF14202+2615/jcmc41eeq_raw.fits
+HHHHAAAAAPPPPYYY!!!
+output plot for index = 74 with keyword = 92t8q filter = 165.0 sky_value = 0.00951226893812
+output plot for index = 75 with keyword = 92t9q filter = 125.0 sky_value = 0.013836232014
+output plot for index = 76 with keyword = 92taq filter = 140.0 sky_value = 0.0121169406921
+output plot for index = 77 with keyword = 92tbq filter = 150.0 sky_value = 0.0107409534976
+<<<<<Performing sky subtraction using NULIRG 5>>>>
+Lising out bad frames
+['""']
+Lisiting out hot frames T>25 that need separate dark subtraction
+['51pgq']
+output plot for index = 78 with keyword = 51oyq filter = 165.0 sky_value = 0.0110397888348
+output plot for index = 79 with keyword = 51p0q filter = 125.0 sky_value = 0.00828048307449
+output plot for index = 80 with keyword = 51p1q filter = 140.0 sky_value = 0.00622911844403
+output plot for index = 81 with keyword = 51p3q filter = 150.0 sky_value = 0.00766050303355
+output plot for index = 82 with keyword = 51pcq filter = 150.0 sky_value = 0.00970857962966
+output plot for index = 83 with keyword = 51pdq filter = 140.0 sky_value = 0.00806771032512
+output plot for index = 84 with keyword = 51peq filter = 125.0 sky_value = 0.00965796224773
+BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>
+[1m[37m   _____    _______  ________    ___ ________________________    _____ ._._._.
+  /  _  \   \      \ \______ \  /   |   \_   _____/\______   \  /  _  \| | | |
+ /  /_\  \  /   |   \ |    |  \/    ~    \    __)_  |       _/ /  /_\  \ | | |
+/    |    \/    |    \|    `   \    Y    /        \ |    |   \/    |    \|\|\|
+\____|__  /\____|__  /_______  /\___|_  /_______  / |____|_  /\____|__  /_____
+        \/         \/        \/       \/        \/         \/         \/\/\/\/
+[0m
+performing dark subtraction for  /home/sourabh/ULIRG_v2/IRASF22206-2715/jcmc51pgq_raw.fits
+<<<<< smoothing FLT for sextractor segmentation maps >>>>
+3.0
+<<<<< Getting SEXTRACTOR for finding segmentaion maps >>>>
+sextractor /home/sourabh/ULIRG_v2/IRASF22206-2715/jcmc51pgq_flt_smooth.fits     -c sex_default.conf     -CATALOG_NAME /home/sourabh/ULIRG_v2/IRASF22206-2715/jcmc51pgq_flt_catalog.cat                 -CHECKIMAGE_TYPE SEGMENTATION      -CHECKIMAGE_NAME /home/sourabh/ULIRG_v2/IRASF22206-2715/jcmc51pgq_flt_seg_map.fits    -DETECT_MINAREA   250.0    -DETECT_THRESH    3.5    -ANALYSIS_THRESH  3.5
+<<<<<  Getting masked image for galaxy >>>>
+performing minimization  for dark = 1
+minimization done
+dark 1  done
+performing minimization  for dark = 2
+minimization done
+dark 2  done
+performing minimization  for dark = 3
+minimization done
+dark 3  done
+performing minimization  for dark = 4
+minimization done
+dark 4  done
+performing minimization  for dark = 5
+minimization done
+dark 5  done
+performing minimization  for dark = 6
+minimization done
+dark 6  done
+performing minimization  for dark = 7
+minimization done
+dark 7  done
+performing minimization  for dark = 8
+minimization done
+dark 8  done
+performing minimization  for dark = 9
+minimization done
+dark 9  done
+performing minimization  for dark = 10
+minimization done
+dark 10  done
+performing minimization  for dark = 11
+minimization done
+dark 11  done
+performing minimization  for dark = 12
+minimization done
+dark 12  done
+performing minimization  for dark = 13
+minimization done
+dark 13  done
+performing minimization  for dark = 14
+minimization done
+dark 14  done
+performing minimization  for dark = 15
+minimization done
+dark 15  done
+performing minimization  for dark = 16
+minimization done
+dark 16  done
+performing minimization  for dark = 17
+minimization done
+dark 17  done
+performing minimization  for dark = 18
+minimization done
+dark 18  done
+performing minimization  for dark = 19
+minimization done
+dark 19  done
+performing minimization  for dark = 20
+minimization done
+dark 20  done
+dark minimum index  15
+plotting the minimization values now
+
+plotting the difference image now ..... with galaxy
+
+plotting the difference image now ..... without galaxy
+
+dark subtraction done for  /home/sourabh/ULIRG_v2/IRASF22206-2715/jcmc51pgq_raw.fits
+HHHHAAAAAPPPPYYY!!!
+output plot for index = 86 with keyword = 52i4q filter = 165.0 sky_value = 0.0094210030511
+output plot for index = 87 with keyword = 52i5q filter = 125.0 sky_value = 0.00659753941
+output plot for index = 88 with keyword = 52i6q filter = 140.0 sky_value = 0.0068977298215
+output plot for index = 89 with keyword = 52i7q filter = 150.0 sky_value = 0.00936251785606
