@@ -145,6 +145,7 @@ def sky_dark_sub(gal_num, configfile, section, section_gal, show_output, dark_RA
                 print ("output plot for index = %s with keyword = %s filter = %s sky_value = %s"%(i, gal_key, x_filter, sky_value[i]))
 
                 #plt.show()
+            
             fig.savefig("%s/INTERMEDIATE_PNG/galaxy%s_%s_sky_sub.png"%(primary_dir, gal_num+1, gal_key), dvi = 400, bbox_inches = 'tight')
             plt.close(fig)
             hdulist.close()
