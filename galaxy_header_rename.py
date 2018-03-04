@@ -42,28 +42,33 @@ def combine_FLT(params, params_gal ):
         and tab["galaxy"][i] == gal_name \
         and tab["channel"][i] =="SBC":
             key = "sky"
-            header_update(key, primary_dir, rw[i], tab, tab["filter"][i])
+            header_update(key, primary_dir, rw[i], tab, tab["filter"][i], params_gal)
 
         if gal_key in dark  \
         and tab["galaxy"][i] == gal_name \
         and tab["channel"][i] == "SBC":
             key = "drk"
-            header_update(key, primary_dir, rw[i], tab , tab["filter"][i])
-def header_update(key, primary_dir, rw, tab, filter_name):
+            header_update(key, primary_dir, rw[i], tab , tab["filter"][i], params_gal)
+def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
     file = primary_dir+rw.replace("flt", "%s_%s_xregflt"%(filter_name, key) )       
     file_err = primary_dir+rw.replace("flt", "%s_%s_xregflt_err"%(filter_name, key))        
 
     file3= primary_dir+rw.replace("flt", "%s_flt"%(key))  
     file2 = primary_dir+rw.replace("flt", "%s_flt_copy"%(key))
     shutil.copy(file3, file2)
-            
-    iraf.wcscopy(file2 + "[2]", file_err + "[0]"  )  ### ref input
-    iraf.wcscopy(file2 + "[3]", file + "[0]"  )
+    
+    file_ref = primary_dir + params_gal["xreg_ref"].replace("rotate_flt", "xregflt")
+    file_ref_err = primary_dir + params_gal["xreg_ref_err"].replace("rotate_flt_err", "xregflt_err")
 
+    #iraf.wcscopy(file2 + "[2]", file_err + "[0]"  )  ### input ref
+    #iraf.wcscopy(file2 + "[1]", file + "[0]"  )
+    #iraf.wcscopy(file2 + "[1]", file + "[0]"  )
+    iraf.wcscopy( file + "[0]", file_ref + "[0]")
+    iraf.wcscopy(file_err+ "[0]", file_ref_err + "[0]")
 
     infile = fits.open(file)
     errfile = fits.open(file_err)
-    outfile=fits.open(file2)  ### reference
+    outfile = fits.open(file2)  ### reference
             
 
     head1=outfile[1].header
@@ -83,7 +88,7 @@ def header_update(key, primary_dir, rw, tab, filter_name):
     #### https://forum.stsci.edu/discussion/208/bug-in-tweakreg-v-1-4-3?
 
     head2.set("IDCSCALE", 0.02500000037252903 )
-    head2.set("ORIENTAT", 0.0 )
+    #head2.set("ORIENTAT", 0.0 )
 
 
 
@@ -111,7 +116,7 @@ def header_update(key, primary_dir, rw, tab, filter_name):
 
 if __name__ == '__main__': 
     for i in range (5):
-        if i !=2:
+        if i ==0:
             section_gal = 'NULIRG%s' %(int(i+1))
             params, params_gal = basic_params(i,'ULIRG_params.cfg', 'basic', section_gal)
 
