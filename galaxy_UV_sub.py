@@ -162,14 +162,15 @@ for i in range (5):
             
 i =0
 
+for i in range(5):
+    if i!=2:
+        for j in range (3):
 
-for j in range (3):
+            filt_sub(i,filt_pairs[j])
+for i in range (5):
+    if i!=2:
 
-    filt_sub(i,filt_pairs[j])
-
-
-i =0
-lya_cont_sub(i)            
+        lya_cont_sub(i)            
 
 
 #dat = np.array(data2-data1) 

@@ -85,6 +85,7 @@ def scaled_images (ind, fl) :
 #scale_images(0,3)
 
 
-i =0
-for j in range (4):
-    scaled_images(i,j)
+for i in range(5):
+    if i !=2:
+        for j in range (4):
+            scaled_images(i,j)

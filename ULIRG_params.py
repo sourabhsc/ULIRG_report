@@ -156,7 +156,7 @@ version1 = "_v3"
 
 suffix_match = "allext" +version ### input files
 suffix_fits = "psfmatch"  ### input
-suffix_scaled = "scaled"
+suffix_scaled = "scale_04_scaled"
 suffix_fits_med = "sky_sub_flux_med" +version
 
 
@@ -178,7 +178,7 @@ filt_pairs = ([(125, 140), (140, 150), (150, 165)])
 #suffix_fits_sub = ""  ### make sure to include "_" before suffix
 
 
-suffix_fits_sub = "" + version  ### make sure to include "_" before suffix
+suffix_fits_sub = "_scale_04"  ### make sure to include "_" before suffix
 
 suffix_fits_sub_med = "_med" + version ### make sure to include "_" before suffix
 

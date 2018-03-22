@@ -21,6 +21,8 @@ from termcolor import cprint
 from pyfiglet import figlet_format
 from acstools import calacs
 from subprocess import DEVNULL
+from stsci.tools import teal
+
 plt.rcdefaults()
 params = {'legend.fontsize': 'x-large',
           'figure.figsize': (15, 7),
@@ -178,7 +180,7 @@ def sky_dark_sub(gal_num, configfile, section, section_gal, show_output, dark_RA
 
             file_name = primary_dir + rw[i]
             print ("BHAAAAAAAAAAGOOOOOOOOOOOO>>>>DRK ENCOUNTERED>>>>>>")
-            cprint(figlet_format('ANDHERA!!!', font='graffiti'),
+            cprint(figlet_format('DARK', font='graffiti'),
        'white', attrs=['bold'])
             '''
             ____           ___
@@ -450,21 +452,23 @@ def dark_sub(file_name_raw, file_mask, dark_FLT, dark_RAW, temp, params, params_
     print ("plotting the difference image now ..... with galaxy\n")
 
     hdulist = fits.open(file_name_raw)
-    fits_dark_selected = "%sINTERMEDIATE_FITS/%s"%(primary_dir,\
-     file_name_no_dir.replace("raw.fits", "dark_%s.fits"%(ind+1)) )
-    shutil.copy(fits_dark_selected, "%s%s"%(primary_dir,\
-         file_name_no_dir.replace("raw.fits", "dark_%s.fits"%(ind+1)) ))
-    hdu_dark = fits.open(fits_dark_selected)
     exp_time = hdulist[0].header["EXPTIME"]
-
     data_gal = hdulist[1].data 
-    data_dark = hdu_dark[0].data
 
-    data_dark[DQ!=0] = 0.0
+    hdu_dark_selected = fits.open(dark_RAW[ind])
+        ## scaling for difference between dark and galaxy exposure time difference
+    data_dark = (A_min[ind]*hdu_dark_selected[1].data*exp_time/float(params["exp_dark"]) + K_min[ind])/exp_time### exp time for darks is 1000 secs
+    dark_selected = primary_dir+ file_name_no_dir.replace("raw.fits", "dark_%s.fits"%(ind+1)) 
+
+    #data_dark[DQ!=0] = 0.0
     data_gal[DQ!=0] = 0.0
-    data_sub = data_gal - data_dark
+    data_sub = data_gal - data_dark*exp_time
 
     hdulist[1].data = data_sub
+
+    hdu_dark_selected[1].data = data_dark
+
+    hdu_dark_selected.writeto(dark_selected, overwrite = True)
     sub_name = file_name_raw.replace("raw.fits", "drk_raw.fits" )
     hdulist.writeto (sub_name, overwrite = True, output_verify="ignore")
 
@@ -523,8 +527,9 @@ if __name__ == '__main__':
     dark_RAW, dark_FLT,  temp = dark_from_ISR('ULIRG_params.cfg', 'basic')           
 
     for i in range (5):
-        section_gal = 'NULIRG%s' %(int(i+1))
-        sky_dark_sub(i,'ULIRG_params.cfg', 'basic', section_gal, "True", dark_RAW, dark_FLT, temp)
+        if i ==0:
+            section_gal = 'NULIRG%s' %(int(i+1))
+            sky_dark_sub(i,'ULIRG_params.cfg', 'basic', section_gal, "True", dark_RAW, dark_FLT, temp)
 
 ########<<<<<<<<<< RAMON COPY RAW FILES >>>>>>>>>>>>>>>>>>>>>
 ### for copying files from RAMON

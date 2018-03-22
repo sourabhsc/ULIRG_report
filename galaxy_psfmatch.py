@@ -44,8 +44,12 @@ def psf_match(i, j):
 		hdulist[1].data=dat1
 	
 	else : ###gal1_HA_FR782N_NB_UV_align.fits
-		file_name = "%sgal%s_HA_%s_UV_align.fits"%(primary_dir, i+1, a[j])
-		filenew = file_name.replace("UV_align", "psfmatch")
+		if j ==4:
+			file_name = "%sgal%s_HA_%s_UV_iraf_v2.fits"%(primary_dir, i+1, a[j])
+			filenew = file_name.replace("UV_iraf_v2", "psfmatch")
+		else:
+			file_name = "%sgal%s_HA_%s_UV_align_v2.fits"%(primary_dir, i+1, a[j])
+			filenew = file_name.replace("UV_align_v2", "psfmatch")
 
 		hdulist=fits.open(file_name)
 
@@ -96,7 +100,7 @@ psf_match(0, 4)
 
 for j in range (4):
 
-	psf_match (4, j)
+	psf_match (3, j)
 
 
 '''
