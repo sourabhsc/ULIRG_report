@@ -50,14 +50,14 @@ def combine_FLT(params, params_gal ):
             key = "drk"
             header_update(key, primary_dir, rw[i], tab , tab["filter"][i], params_gal)
 def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
-
+    '''
     if rw == "jcmc41dxq_flt.fits":
-        print ("i am workinggggggggggggggggggggggggggggggggggggg")
+        #print ("i am workinggggggggggggggggggggggggggggggggggggg")
         file = primary_dir+rw.replace("flt", "%s_iraf_shift_flt"%(filter_name) )       
-        file_err = primary_dir+rw.replace("flt", "%s_iraf_shift_flt_err"%(filter_name) )        
-    else:
-        file = primary_dir+rw.replace("flt", "%s_%s_xregflt"%(filter_name, key) )       
-        file_err = primary_dir+rw.replace("flt", "%s_%s_xregflt_err"%(filter_name, key))
+        file_err = primary_dir+rw.replace("flt", "%s_iraf_shift_flt_err"%(filter_name) ) 
+    '''       
+    file = primary_dir+rw.replace("flt", "%s_%s_xregflt"%(filter_name, key) )       
+    file_err = primary_dir+rw.replace("flt", "%s_%s_xregflt_err"%(filter_name, key))
 
 
     file3= primary_dir+rw.replace("flt", "%s_flt"%(key))  
@@ -121,12 +121,14 @@ def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
     file_out= primary_dir+rw.replace("flt", "%s_%s_allext_flt"%(filter_name, key))
     outfile.writeto(file_out,overwrite=True,output_verify="ignore")#, wcs = w1)
 
-if __name__ == '__main__': 
+def main():
     for i in range (5):
-        if i ==3:
+        if i ==0:
             section_gal = 'NULIRG%s' %(int(i+1))
-            params, params_gal = basic_params(i,'ULIRG_params.cfg', 'basic', section_gal)
+            params, params_gal = basic_params('ULIRG_params.cfg', 'basic', section_gal)
 
             combine_FLT(params, params_gal)
             
 
+if __name__ == '__main__': 
+    main()
