@@ -9,7 +9,7 @@ from astropy.wcs import WCS
 from astropy import wcs
 import shutil
 import os
-
+from astropy.io import ascii
 ### my functions
 from utilities_function import basic_params
 
@@ -49,15 +49,29 @@ def combine_FLT(params, params_gal ):
         and tab["channel"][i] == "SBC":
             key = "drk"
             header_update(key, primary_dir, rw[i], tab , tab["filter"][i], params_gal)
+def xreg_shift(primary_dir, rw, filter_name, key, file):
+    shift_txt = primary_dir + '/INTERMEDIATE_TXT/' + rw.replace('flt.fits', '%s_%s_shift.txt'%(filter_name, key))
+    hdu = fits.open(file)
+    data = hdu[0].data
+
+    c = ascii.read(shift_txt, format= 'basic')
+    #### xregister output shift file in proper format
+    xshift = int(np.around((float(c[4][0].split('\t')[2]))))
+    yshift = int(np.around((float(c[5][0].split('\t')[2]))))
+
+    data_shift_y = np.roll(data, yshift, axis = 0)
+    data_shift_tot = np.roll(data_shift_y, xshift, axis = 1)
+    file_out = file.replace('rotate', 'shifted')
+    hdu[0].data = data_shift_tot
+    hdu.writeto(file_out, overwrite = True)
+    hdu.close()
+    return data_shift_tot
+
 def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
-    '''
-    if rw == "jcmc41dxq_flt.fits":
-        #print ("i am workinggggggggggggggggggggggggggggggggggggg")
-        file = primary_dir+rw.replace("flt", "%s_iraf_shift_flt"%(filter_name) )       
-        file_err = primary_dir+rw.replace("flt", "%s_iraf_shift_flt_err"%(filter_name) ) 
-    '''       
+     
     file = primary_dir+rw.replace("flt", "%s_%s_xregflt"%(filter_name, key) )       
-    file_err = primary_dir+rw.replace("flt", "%s_%s_xregflt_err"%(filter_name, key))
+    file_err = primary_dir+rw.replace("flt", "%s_%s_rotate_flt_err"%(filter_name, key))
+    file_DQ = primary_dir+rw.replace("flt", "%s_%s_rotate_flt_DQ"%(filter_name, key))
 
 
     file3= primary_dir+rw.replace("flt", "%s_flt"%(key))  
@@ -65,16 +79,19 @@ def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
     shutil.copy(file3, file2)
     
     file_ref = primary_dir + params_gal["xreg_ref"].replace("rotate_flt", "xregflt")
-    file_ref_err = primary_dir + params_gal["xreg_ref_err"].replace("rotate_flt_err", "xregflt_err")
+    #file_ref_err = primary_dir + params_gal["xreg_ref_err"].replace("rotate_flt_err", "xregflt_err")
 
     #iraf.wcscopy(file2 + "[2]", file_err + "[0]"  )  ### input ref
     #iraf.wcscopy(file2 + "[1]", file + "[0]"  )
     #iraf.wcscopy(file2 + "[1]", file + "[0]"  )
     iraf.wcscopy( file + "[0]", file_ref + "[0]")
-    iraf.wcscopy(file_err+ "[0]", file_ref_err + "[0]")
+    iraf.wcscopy(file_err+ "[0]", file_ref + "[0]")
+    iraf.wcscopy(file_DQ+ "[0]", file_ref + "[0]")
 
     infile = fits.open(file)
     errfile = fits.open(file_err)
+    DQfile = fits.open(file_DQ)
+
     outfile = fits.open(file2)  ### reference
             
 
@@ -110,16 +127,19 @@ def header_update(key, primary_dir, rw, tab, filter_name, params_gal):
     outfile[1].name="sci"
 
     outfile[1].header["HISTORY"] = "combining FLT extensions from output of xreg and rotate files that go into the combination are %s %s"%(file, file_err)
-    outfile[2].header = outfile[2].header
-    outfile[2].data = outfile[2].data    
+    #outfile[2].header = outfile[2].header
+    outfile[2].data = xreg_shift(primary_dir, rw, filter_name, key, file_err)    
     outfile[2].name = 'err'
 
-    outfile[3].header = outfile[3].header
-    outfile[3].data = outfile[3].data
+    #outfile[3].header = outfile[3].header
+    outfile[3].data = xreg_shift(primary_dir, rw, filter_name, key, file_DQ)
     outfile[3].name = "dq"
 
     file_out= primary_dir+rw.replace("flt", "%s_%s_allext_flt"%(filter_name, key))
+
     outfile.writeto(file_out,overwrite=True,output_verify="ignore")#, wcs = w1)
+    iraf.wcscopy(file_out+ "[2]", file_ref + "[0]")
+    iraf.wcscopy(file_out+ "[3]", file_ref + "[0]")
 
 def main():
     for i in range (5):
