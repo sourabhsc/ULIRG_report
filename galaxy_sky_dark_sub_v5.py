@@ -1,5 +1,5 @@
 import os
-import scp
+#import scp
 from astropy.table import Table
 import numpy as np
 import matplotlib.pylab as pylab
@@ -81,7 +81,7 @@ def sky_dark_sub(gal_num, configfile, section, section_gal, show_output, dark_RA
     if show_output == "True":
         print ("Lising out bad frames")
         print (bad)
-        print("Lisiting out hot frames T>25 that need separate dark subtraction")
+        print("Lisiting out hot frames T>22 that need separate dark subtraction")
         print (dark)
 
 
@@ -89,11 +89,11 @@ def sky_dark_sub(gal_num, configfile, section, section_gal, show_output, dark_RA
     sky_value = np.zeros(len(tab))
     table_sky = Table( names=('file_name', 'sky_value', 'exp_time', 'filter'), dtype = ('S100', 'f4', 'f4', 'S4'))
     table_sky.meta['comments'] = ['NULIRG %s  with name %s Output sky values calculated on FLT images for future preference \
-    \n !Remember the corrresponding plots have sky value per exposure time '%(gal_num+1, gal_name)]
+    !Remember the corrresponding plots have sky value per exposure time '%(gal_num+1, gal_name)]
 
-    table_dark = Table( names=('file_name', 'm1', 'dark_radii', 'ind', 'A_min', 'K_min', 'diff_ar', 'exp_time'), dtype = ('S100', 'f4', 'f4', 'f4', 'f4', 'f4','f4', 'f4'))
+    table_dark = Table( names=('file_name', 'temp', 'dark_radii', 'ind', 'A_min', 'K_min', 'diff_ar', 'exp_time'), dtype = ('S100', 'f4', 'f4', 'f4', 'f4', 'f4','f4', 'f4'))
     table_dark.meta['comments'] = ['NULIRG %s  with name %s Output sky values calculated on FLT images for future preference \
-    \n !Remember the corrresponding plots have sky value per exposure time '%(gal_num+1, gal_name)]
+     !Remember the corrresponding plots have sky value per exposure time '%(gal_num+1, gal_name)]
 
     rad1, rad_annulus, masks , masks_annulus = masks_circular (int(params_gal["cent_x"]),\
     int(params_gal["cent_x"]),\
@@ -324,8 +324,8 @@ def function_dark_sub(a,k, aper_diff_gal, aper_diff_dark, dark_radii, rad1, gala
 def dark_sub_chisq (aper_diff_gal, aper_diff_dark, dark_radii, rad1):
     sci = np.array(aper_diff_gal[dark_radii:len(rad1)-1])
     drk = np.array(aper_diff_dark[dark_radii:len(rad1)-1])
-    #err = sp.ones_like(sci)
-    err = np.sqrt(sci)
+    err = sp.ones_like(sci)
+    #err = np.sqrt(sci)
     u = sp.sum(sci * drk / err)
     v = sp.sum(drk**2 / err)
     w = sp.sum(drk / err)
@@ -478,11 +478,23 @@ def dark_sub(file_name_flt, file_mask, dark_FLT, \
         A_min[i] = par[0]#A[c[0]]
         K_min[i] = par[1]#K[c[1]]
         #print ("dark %s  done"%(i+1))
+        
     ind = np.argmin(minimum_var)
+    print (file_name_flt)
+  
+
     ind_new = np.argmin(chi2)
+    if file_name_flt == '/home/sourabh/ULIRG_v2/IRASF13469+5833/jcmc31n9q_flt.fits':
+        print ("CHHHHHHHHIIIIIIIIIIIIII",chi2)
+        print ("A_best", A_best[ind_new])
+        print ("K_best", K_best[ind_new])
+        print ("ind_new",ind_new)
+
+
+
     print ("dark minimum index ", ind)
-    table_dark.add_row(( file_name_no_dir, m1, dark_radii, ind, A_min[ind], K_min[ind], np.min(diff_ar), exp_time ))
-    table_dark.add_row(( file_name_no_dir, m1, dark_radii, ind, A_best[ind_new], K_best[ind_new], np.min(chi2), exp_time ))
+    table_dark.add_row(( file_name_no_dir, temp_gal, dark_radii, ind, A_min[ind], K_min[ind], np.min(diff_ar), exp_time ))
+    table_dark.add_row(( file_name_no_dir, temp_gal, dark_radii, ind_new, A_best[ind_new], K_best[ind_new], np.min(chi2), exp_time ))
 
     table_name_dark = '%sINTERMEDIATE_TXT/FLT_drk_v3_gal_%s.txt'%(primary_dir, gal_num+1)
     table_dark.write(table_name_dark, format='ascii', overwrite = True)
@@ -490,19 +502,19 @@ def dark_sub(file_name_flt, file_mask, dark_FLT, \
 
     print ("plotting the minimization values now\n")
     fig, ax= plt.subplots(1,1 , figsize =(8, 8))
-    ax.plot(temp, minimum_var, "o", markersize =8 )
+    ax.plot(temp, chi2, "o", markersize =8 )
     ax.set_xlabel(r" Dark Temp[$^o$ C]")    
     ax.set_ylabel("Minimizer |G[r]| [counts]")
     ax.axvline(x = temp_gal, color ="g", label = "galaxy temperature")
-    ax.axvline(x = temp[ind], color = "r", label = "minimum value A= %.1e\n, K = %.1e,\n\
-     index = %.1e\n"%(A_min[ind], K_min[ind], ind))
+    ax.axvline(x = temp[ind_new], color = "r", label = "minimum value A= %.1e\n, K = %.1e,\n\
+     index = %.1e\n"%(A_best[ind_new], K_best[ind_new], ind_new))
     #ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     ax.legend(loc='lower left')
     
     #dir_gal = '/'.join()
     #plt.show()
 
-    minimizer_png = file_name_no_dir.replace("flt.fits", "minimizer.png")
+    minimizer_png = file_name_no_dir.replace("flt.fits", "minimizer_v3.png")
     
     fig.savefig("%s/INTERMEDIATE_PNG/%s"%(primary_dir, minimizer_png), dvi = 400, bbox_inches = 'tight')
 
@@ -512,9 +524,9 @@ def dark_sub(file_name_flt, file_mask, dark_FLT, \
     exp_time = hdulist[0].header["EXPTIME"]
     data_gal = hdulist[1].data 
 
-    hdu_dark_selected = fits.open(dark_RAW[ind])
+    hdu_dark_selected = fits.open(dark_RAW[ind_new])
         ## scaling for difference between dark and galaxy exposure time difference
-    data_dark = (A_min[ind]*hdu_dark_selected[1].data*exp_time/float(params["exp_dark"]) + K_min[ind])/exp_time### exp time for darks is 1000 secs
+    data_dark = (A_best[ind_new]*hdu_dark_selected[1].data*exp_time/float(params["exp_dark"]) + K_best[ind_new])/exp_time### exp time for darks is 1000 secs
     dark_selected = primary_dir+ file_name_no_dir.replace("flt.fits", "dark_%s.fits"%(ind+1)) 
 
 
@@ -531,7 +543,7 @@ def dark_sub(file_name_flt, file_mask, dark_FLT, \
 
     hdu_dark_selected.writeto(dark_selected, overwrite = True)
     hdu_dark_selected.close()
-    sub_name = file_name_flt.replace("flt.fits", "drk_flt.fits" )
+    sub_name = file_name_flt.replace("flt.fits", "drk_flt_v3.fits" )
 
     hdulist.writeto (sub_name, overwrite = True, output_verify="ignore")
     hdulist.close()
@@ -551,28 +563,8 @@ def dark_sub(file_name_flt, file_mask, dark_FLT, \
     y1 = 8.11e-6*exp_time
     ax1.axhline(y= y1, linestyle = '--', color = "k", label = "constant dark ISR y = %.1e"%(y1))
     ax1.legend()
-    '''
-    print ("plotting the difference image now ..... without galaxy\n")
-    data_dark2 = data_dark
-    data_dark2[mask] = 0.0
-    data_gal[mask] = 0.0
-    data_sub2 = data_gal- data_dark2*exp_time
-    aper_before =  [np.mean(data_gal[masks_annulus[k]]) for k in range(len(rad1)-1) ]  
-    aper_dark =  [np.mean(data_dark[masks_annulus[k]]*exp_time) for k in range(len(rad1)-1) ]  
-    aper_subtracted =  [np.mean(data_sub2[masks_annulus[k]]) for k in range(len(rad1)-1) ]  
 
-    ax2.plot (rad_annulus, aper_before, color = "orange", label = "before")
-    ax2.plot (rad_annulus, aper_dark, color = "green", label = "dark")
-    ax2.plot (rad_annulus, aper_subtracted, color = "blue", label = "subtracted")
-    ax2.set_xlabel("pixels")
-    ax2.set_ylabel("annuli mean counts")
-    ax2.set_title(" Masked ULIRG %s exposure %s" %(gal_num+1, file_name_no_dir), fontsize = 16)
-    ax2.axhline(y = 0, color = 'k')
-    ax2.axhline(y = y1, linestyle = '--', color = "k", label = "constant dark ISR y = %.1e"%(y1))
-
-    ax2.legend()
-    '''
-    verification_png = file_name_no_dir.replace("flt.fits", "verification")
+    verification_png = file_name_no_dir.replace("flt.fits", "verification_v3")
 
     fig.savefig("%s/INTERMEDIATE_PNG/%s"%(primary_dir, verification_png), dvi = 400, bbox_inches = 'tight')
 
