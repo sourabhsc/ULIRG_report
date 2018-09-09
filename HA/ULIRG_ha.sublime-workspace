@@ -1,0 +1,317 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "galaxy_ha_cut.py",
+			"settings":
+			{
+				"buffer_size": 7150,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"material theme",
+				"Material Theme: Configuration"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 228.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/sourabh/ULIRG_v2",
+		"/home/sourabh/ULIRG_v2/scripts",
+		"/home/sourabh/ULIRG_v2/scripts/HA"
+	],
+	"file_history":
+	[
+		"/home/sourabh/Desktop/Desktop_old/2018questions1.tex",
+		"/home/sourabh/ULIRG_updates/cont_flt.tex",
+		"/home/sourabh/ULIRG_v3/notebooks/a.tex",
+		"/home/sourabh/Downloads/cont_flt_v4.tex",
+		"/home/sourabh/ULIRG_v2/scripts/churchil.tex",
+		"/home/sourabh/ULIRG_v2/scripts/dark_sub_app_v4.py",
+		"/home/sourabh/bin/miniconda3/pkgs/pysynphot-0.9.12-py27_0/lib/python2.7/site-packages/pysynphot/observation.py",
+		"/home/sourabh/bin/miniconda3/pkgs/pysynphot-0.9.12-py27_0/lib/python2.7/site-packages/pysynphot/obsbandpass.py",
+		"/home/sourabh/bin/miniconda3/pkgs/pysynphot-0.9.12-py27_0/lib/python2.7/site-packages/pysynphot/__init__.py",
+		"/home/sourabh/bin/miniconda3/pkgs/pysynphot-0.9.12-py27_0/lib/python2.7/site-packages/pysynphot/wavetable.py",
+		"/home/sourabh/ULIRG_v2/scripts/galaxy_sky_dark_sub_v5.py",
+		"/home/sourabh/ULIRG_v2/scripts/utilities_function.py",
+		"/home/sourabh/ULIRG_v2/scripts/dark_SBC_final/segmentation.py",
+		"/home/sourabh/Desktop/Desktop_old/oral_reserve1.tex",
+		"/home/sourabh/Desktop/Desktop_old/notes_ULIRG.tex",
+		"/home/sourabh/Desktop/Desktop_old/dark_struggle.tex",
+		"/home/sourabh/Desktop/Desktop_old/2018questions.tex",
+		"/home/sourabh/ULIRG_v2/scripts/notebook/comparison_Matt.html",
+		"/home/sourabh/ULIRG_v2/scripts/anim_effective.py",
+		"/home/sourabh/.config/sublime-text-3/Packages/User/python36.sublime-build",
+		"/home/sourabh/.config/sublime-text-3/Packages/User/python35.sublime-build",
+		"/home/sourabh/ULIRG_v2/scripts/galaxy_sky__dark_sub_v5.py",
+		"/home/sourabh/bin/sublime_things.html",
+		"/home/sourabh/bin/test.py",
+		"/home/sourabh/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/sourabh/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/sourabh/ch/1.php",
+		"/home/sourabh/s.txt",
+		"/home/sourabh/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/sourabh/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"show",
+			" for i ",
+			"Table",
+			"read",
+			"cont_",
+			"obsband",
+			"stim",
+			"primary_",
+			"sum",
+			"pyfits",
+			"np.mean",
+			"primary_dir",
+			"np.sum",
+			"header",
+			"segmenta",
+			"call",
+			"mask_seg",
+			"mask",
+			"sky_sub",
+			"sky",
+			"cprint",
+			"gal_key",
+			"smooth_gal",
+			"sextractor",
+			"basic_params",
+			"smooth_scale",
+			"sextrac",
+			"DQ",
+			"chi",
+			"dq",
+			"hot",
+			"chi2",
+			"i == 2",
+			"i==2",
+			"A_best",
+			"data_dark",
+			"T>25",
+			"gal_key",
+			"key",
+			"ind_new",
+			"31n9",
+			"A_best",
+			"exp_time",
+			"dark_raw",
+			"hdu_dark",
+			"before",
+			"data_gal",
+			"input",
+			"aper_diff_gal",
+			"scp"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "galaxy_ha_cut.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 56.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 241.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/ulirg.sublime-build",
+	"project": "ULIRG_ha.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 446.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
