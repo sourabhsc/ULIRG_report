@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Steps of analysis}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Dark and sky subtraction}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}combining FLT files using astrodrizzle}{6}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}psfmatch}{6}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}PHOTFLAM factor }{6}{subsection.1.4}
