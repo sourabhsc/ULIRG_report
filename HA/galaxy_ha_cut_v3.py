@@ -1,5 +1,6 @@
 import pyraf
 from pyraf import iraf
+import os
 from astropy.wcs import WCS
 from astropy.io import fits
 import numpy as np
@@ -11,6 +12,8 @@ sys.path.insert(0, '/home/sourabh/ULIRG_v2/scripts/')
 from utilities_function import *
 from matplotlib import pyplot as plt
 import shutil
+
+config_dir = '/home/sourabh/ULIRG_v2/scripts/'
 
 '''
 class ha_cut:
@@ -41,9 +44,9 @@ def ha_cut(params, params_gal, i):
 
     filt_NB = params_gal["nb_ha"]
     filt_BB = params_gal["bb_ha"]
-    file_cut_NB, pixx, pixy = ha_cut_filter(filt_NB, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y)
-    file_cut_BB, pixx, pixy = ha_cut_filter(filt_BB, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y)
-    return file_cut_NB, file_cut_BB, file_UV, pixx, pixy
+    file_cut_NB = ha_cut_filter(filt_NB, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y)
+    file_cut_BB = ha_cut_filter(filt_BB, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y)
+    return file_cut_NB, file_cut_BB, file_UV
 
 
 def ha_cut_filter(filt_HA, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y):
@@ -96,22 +99,24 @@ def ha_cut_filter(filt_HA, primary_dir, i, cent_ra, cent_dec, cut_x, cut_y):
     hdulist[3].header = prihdr
 
     filenew = name_HA.replace("scale_04_drc", "scale_04_cut_drc")
-    filenew_SN = name_HA.replace("scale_04_drc", "scale_04_cut_drc_SN")
+    #filenew_SN = name_HA.replace("scale_04_drc", "scale_04_cut_drc_SN")
+    filenew = filenew.replace('%s' % (primary_dir), '%sINTERMEDIATE_FITS/' % (primary_dir))
+    #filenew_SN = filenew_SN.replace('%s' % (primary_dir), '%sINTERMEDIATE_FITS/' % (primary_dir))
 
     hdulist.writeto(filenew, overwrite=True, output_verify="ignore")
     hdulist.close()
 
-    hdulist1 = fits.open(filenew)
-    hdulist1[1].data = np.array(data_cut) / err_final
-    hdulist1[1].header = prihdr
-    hdulist1[1].name = 'S/N'
-    hdulist1.writeto(filenew_SN, overwrite=True, output_verify="ignore")
-    hdulist1.close()
+    #hdulist1 = fits.open(filenew)
+    #hdulist1[1].data = np.array(data_cut) / err_final
+    #hdulist1[1].header = prihdr
+    #hdulist1[1].name = 'S/N'
+    #hdulist1.writeto(filenew_SN, overwrite=True, output_verify='ignore')
+    #hdulist1.close()
 
-    return filenew, pixx, pixy
+    return filenew
 
 
-def ha_xreg_match(primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_gal, pixx, pixy):
+def ha_xreg_match(Xc, Yc, primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_gal):
 
     #### INPUTS ####
     #file_cut_NB, file_cut_BB, file_UV
@@ -123,17 +128,17 @@ def ha_xreg_match(primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_ga
     fBB_align_file = fBB_sky_file.replace("scale_04_sky_drc", "BB_UV_align")
 
     print ("gal %s STARTTTTTTTTTTTTTTTTTTTTT" % (i + 1))
-    shift_NB_BB = '%sshift_NB_BB_gal%s_v3.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
-    shift_BB = '%sshift_HA_UV_NB_gal%s_v3.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
-    shift_NB = '%sshift_HA_UV_BB_gal%s_v3.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
+    shift_NB_BB = '%sgalaxy_xreg_NB_BB_gal%s.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
+    shift_BB = '%sgalaxy_xreg_HA_UV_NB_gal%s.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
+    shift_NB = '%sgalaxy_xreg_HA_UV_BB_gal%s.txt' % (primary_dir + "INTERMEDIATE_TXT/", i + 1)
     file_remove(fNB_BB_file)
     file_remove(shift_NB)
     file_remove(fNB_align_file)
     file_remove(shift_NB_BB)
     file_remove(fBB_align_file)
     file_remove(shift_BB)
-    win_x = pixx
-    win_y = pixy
+    win_x = Xc
+    win_y = Yc
     if i == 4:
         dl = 250
     else:
@@ -189,9 +194,8 @@ def ha_xreg_match(primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_ga
 #positions_y = np.array([624, 429, 545, 668, 620])
 
 
-def ha_sky_sub(pixx, pixy, file_cut, i):
-    Xc = pixx
-    Yc = pixy
+def ha_sky_sub(file_cut, i, ax, ha_filter, primary_dir, style):
+    Xc, Yc = UV_centers_drz('%sgal%s_UV_F125_scale_04_drz.fits' % (primary_dir, i + 1))
 
     hdu = fits.open(file_cut)
     data = hdu[1].data
@@ -217,11 +221,18 @@ def ha_sky_sub(pixx, pixy, file_cut, i):
     file_sky = file_cut.replace("cut", "sky")
     hdu.writeto(file_sky, overwrite=True)
     hdu.close()
-    plt.plot(rad1, aper_sum, 'r', linestyle='--', label="before")
-    plt.plot(rad1, aper_sum_sub, 'b', linestyle='--', label="sub")
-    plt.legend()
 
-    return file_sky
+    # plotting
+    ax.plot(rad1, aper_sum, 'r', linestyle=style, label="before sky sub %s" % (ha_filter))
+    ax.plot(rad1, aper_sum_sub, 'b', linestyle=style, label="after sky sub %s" % (ha_filter))
+    ax.set_ylabel('cumulative counts')
+    ax.set_xlabel('radius from center(%s, %s)' % (Xc, Yc))
+    ax.legend()
+
+    return file_sky, Xc, Yc
+
+
+ls = np.array(['--', '-'])
 
 
 def ha_cont_sub(primary_dir, fNB_align_file, fBB_align_file, i):
@@ -250,16 +261,19 @@ def ha_cont_sub(primary_dir, fNB_align_file, fBB_align_file, i):
 if __name__ == '__main__':
     for i in range(5):
         section_gal = 'NULIRG%s' % (int(i + 1))
-        params, params_gal = basic_params('ULIRG_params.cfg', 'basic', section_gal)
+        params, params_gal = basic_params(config_dir + 'ULIRG_params.cfg', 'basic', section_gal)
         primary_dir = params['work_dir'] + params_gal['name'] + '/'
 
-        file_cut_NB, file_cut_BB, file_UV, pixx, pixy = ha_cut(params, params_gal, i)
-        plt.figure()
-
-        fNB_sky_file = ha_sky_sub(pixx, pixy, file_cut_NB, i)
-        fBB_sky_file = ha_sky_sub(pixx, pixy, file_cut_BB, i)
+        file_cut_NB, file_cut_BB, file_UV = ha_cut(params, params_gal, i)
+        # sky subtraction figure
+        fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+        fNB_sky_file, Xc, Yc = ha_sky_sub(file_cut_NB, i, ax, params_gal['nb_ha'], primary_dir, ls[0])
+        fBB_sky_file, Xc, Yc = ha_sky_sub(file_cut_BB, i, ax, params_gal['bb_ha'], primary_dir, ls[1])
         # plt.show()
-        fNB_align_file, fBB_align_file = ha_xreg_match(primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_gal, pixx, pixy)
+        fNB_align_file, fBB_align_file = ha_xreg_match(Xc, Yc, primary_dir, fNB_sky_file, fBB_sky_file, file_UV, i, params_gal)
+        ax.set_title('sky subtraction HA filters for ULIRG %s' % (i + 1))
+
+        fig.savefig('%s/INTERMEDIATE_PNG/gal%s_HA_sky_subtraction.png' % (primary_dir, i + 1))
         '''
         print (file_cut_NB, file_cut_BB)
         print (fNB_sky_file, fBB_sky_file)
